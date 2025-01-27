@@ -1,0 +1,37 @@
+:root {
+  --inputContainer-width: 400px;
+  --input-width: calc(var(--inputContainer-width) / 2 - 7px);
+}
+
+.headerAndInputsContainer {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.titleName {
+  height: fit-content;
+  margin: 0;
+  color: black;
+}
+
+.headerInputs {
+  max-width: var(--inputContainer-width);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.firstNameContainer,
+.lastNameContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerInputs h4 {
+  color: black;
+  margin: 0;
+}
+
+.headerInputs input {
+  width: var(--input-width);
+}
