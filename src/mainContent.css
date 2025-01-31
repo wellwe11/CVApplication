@@ -1,0 +1,57 @@
+:root {
+  --textColor: black;
+  --borderColor: black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--textColor);
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.contentContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.contentSection {
+  margin: 10px;
+  border: 1px solid var(--borderColor);
+
+  height: fit-content;
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.leftContent {
+  width: 35%;
+  margin-left: 5%;
+}
+
+.rightContent {
+  width: 76%;
+  margin-left: 2%;
+  margin-right: 3%;
+}
+
+.CVContainer {
+  display: flex;
+  flex-direction: column;
+
+  background-color: orange;
+
+  min-height: 100vh;
+  min-width: 100%;
+}

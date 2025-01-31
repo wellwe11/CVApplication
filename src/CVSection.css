@@ -1,0 +1,49 @@
+.CVHeaderContainer {
+  height: 140px;
+  width: 100%;
+  background-color: blue;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.nameContainer {
+  width: 300px;
+  height: 50px;
+  background-color: green;
+}
+
+.personalInformationContainer {
+  width: 300px;
+  height: 30px;
+  background-color: greenyellow;
+}
+
+.CVExperienceContainer {
+  width: 100%;
+  height: 20vh;
+  background-color: azure;
+  border-bottom: 1px solid black;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.CVExperienceContentContainer {
+  display: flex;
+  height: 100%;
+}
+
+.experienceLeftBar {
+  width: 20%;
+  height: 100%;
+  background-color: aqua;
+}
+
+.experienceRightBar {
+  width: 80%;
+  height: 100%;
+  background-color: aquamarine;
+}
