@@ -1,19 +1,18 @@
 import { useState } from "react";
 import TitleAndInputs from "./titleAndInputs";
+import ExperienceInputs from "./educationSection";
 import "./mainContent.css";
-import "./educationSection.css";
-import "./CVSection.css";
 
 function CVHeaderSection({ nameValue, emailValue, phoneValue, addressValue }) {
   return (
     <div className="CVHeaderContainer">
       <div className="nameContainer">
-        <h1 value={nameValue}></h1>
+        <h1>{nameValue}</h1>
       </div>
       <div className="personalInformationContainer">
-        <h3 value={emailValue}></h3>
-        <h3 value={phoneValue}></h3>
-        <h3 value={addressValue}></h3>
+        <h3>{emailValue}</h3>
+        <h3>{phoneValue}</h3>
+        <h3>{addressValue}</h3>
       </div>
     </div>
   );
@@ -28,78 +27,31 @@ function CVExperiences({
 }) {
   return (
     <div className="CVExperienceContainer">
-      <h3 value={sectionTitleValue}></h3>
+      <h3>{sectionTitleValue}</h3>
       <div className="CVExperienceContentContainer">
         <div className="experienceLeftBar">
-          <h4 value={dateValue}></h4>
-          <h4 value={locationValue}></h4>
+          <h4>{dateValue}</h4>
+          <h4>{locationValue}</h4>
         </div>
         <div className="experienceRightBar">
-          <h4 value={titleName}></h4>
-          <h4 value={degreeValue}></h4>
+          <h4>{titleName}</h4>
+          <h4>{degreeValue}</h4>
         </div>
       </div>
-    </div>
-  );
-}
-
-function ExperienceInputs({
-  former,
-  rows,
-  handleAddRow,
-  handleRemoveRow,
-  handleExperienceChange,
-  experienceType,
-  titleType,
-}) {
-  return (
-    <div className="experienceSection">
-      <h2>{former}</h2>
-      <div className="experienceInputs">
-        {rows.map((row, index) => (
-          <div className="experienceInput" key={index}>
-            <div className="experienceHeader">
-              <button onClick={() => handleRemoveRow(index)}>-</button>
-              <input
-                type="text"
-                value={row[experienceType] || ""}
-                onChange={(e) =>
-                  handleExperienceChange(e, index, experienceType)
-                }
-                placeholder={experienceType}
-              ></input>
-            </div>
-            <div className="experiencePosition">
-              <input
-                type="text"
-                value={row[titleType] || ""}
-                onChange={(e) => handleExperienceChange(e, index, titleType)}
-                placeholder={titleType}
-              ></input>
-            </div>
-            <div className="experienceDate">
-              <input type="date"></input>
-              <p>-</p>
-              <input
-                type="date"
-                onChange={(e) => handleExperienceChange(e, index, "date")}
-              ></input>
-            </div>
-          </div>
-        ))}
-      </div>
-      <button onClick={handleAddRow}>+</button>
     </div>
   );
 }
 
 export default function MainContent() {
   const [rows, setRows] = useState([
-    { experienceType: "", titleType: "", date: "" },
+    { experienceType: "", titleType: "", dateTypeStart: "", dateTypeEnd: "" },
   ]);
 
   const handleAddRow = () => {
-    setRows([...rows, { experienceType: "", titleType: "", date: "" }]);
+    setRows([
+      ...rows,
+      { experienceType: "", titleType: "", dateTypeStart: "", dateTypeEnd: "" },
+    ]);
   };
 
   const handleRemoveRow = (index) => {
@@ -114,6 +66,12 @@ export default function MainContent() {
     setRows(values);
   };
 
+  const [name, setName] = useState("");
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
   return (
     <div>
       <div className="headerContainer">
@@ -123,10 +81,12 @@ export default function MainContent() {
       </div>
       <div className="contentContainer">
         <div className="leftContent contentSection">
-          <TitleAndInputs />
+          <TitleAndInputs handleNameChange={handleNameChange} name={name} />
           <ExperienceInputs
+            Type="input"
             experienceType={"companyName"}
             titleType={"title"}
+            dateTypeStart={"dateStart"}
             former={"Work experience"}
             rows={rows}
             handleAddRow={handleAddRow}
@@ -134,8 +94,10 @@ export default function MainContent() {
             handleExperienceChange={handleExperienceChange}
           />
           <ExperienceInputs
+            Type="input"
             experienceType={"SchoolName"}
             titleType={"studies"}
+            dateTypeEnd={"dateEnd"}
             former={"Education"}
             rows={rows}
             handleAddRow={handleAddRow}
@@ -143,11 +105,32 @@ export default function MainContent() {
             handleExperienceChange={handleExperienceChange}
           />
         </div>
+
         <div className="rightContent contentSection">
-          <div className="CVContainer">
-            <CVHeaderSection />
-            <CVExperiences />
-          </div>
+          <CVHeaderSection />
+          <CVExperiences />
+          <ExperienceInputs
+            Type="input"
+            experienceType={"companyName"}
+            titleType={"title"}
+            dateTypeStart={"dateStart"}
+            former={"Work experience"}
+            rows={rows}
+            handleAddRow={handleAddRow}
+            handleRemoveRow={handleRemoveRow}
+            handleExperienceChange={handleExperienceChange}
+          />
+          <ExperienceInputs
+            Type="input"
+            experienceType={"SchoolName"}
+            titleType={"studies"}
+            dateTypeEnd={"dateEnd"}
+            former={"Education"}
+            rows={rows}
+            handleAddRow={handleAddRow}
+            handleRemoveRow={handleRemoveRow}
+            handleExperienceChange={handleExperienceChange}
+          />
         </div>
       </div>
     </div>

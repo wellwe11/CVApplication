@@ -72,7 +72,7 @@
   background-color: lightgray;
 }
 
-.firstNameContainer button {
+.nameContainer button {
   width: 30px;
   height: 25px;
 
@@ -84,15 +84,13 @@
   margin-left: -30px;
 }
 
-.firstNameContainer,
-.lastNameContainer,
+.nameContainer,
 .emailInputContainer,
 .phoneNumberInputContainer {
   display: flex;
 }
 
-.firstNameContainer input,
-.lastNameContainer input,
+.nameContainer input,
 .emailInputContainer input,
 .phoneNumberInputContainer input {
   border: none;
@@ -105,10 +103,8 @@
   outline: none;
 }
 
-.firstNameContainer input:focus,
-.firstNameContainer input:hover,
-.lastNameContainer input:focus,
-.lastNameContainer input:hover,
+.nameContainer input:focus,
+.nameContainer input:hover,
 .emailInputContainer input:focus,
 .emailInputContainer input:hover,
 .phoneNumberInputContainer input:focus,
