@@ -3,52 +3,60 @@ import TitleAndInputs from "./titleAndInputs";
 import ExperienceInputs from "./educationSection";
 import "./mainContent.css";
 
+const handleState = (stateToUse) => {
+  const [state, setState] = useState(stateToUse);
+
+  const handleAddState = () => {
+    setState([
+      ...state,
+      { experienceType: "", titleType: "", dateTypeStart: "", dateTypeEnd: "" },
+    ]);
+  };
+
+  const handleRemoveState = (index) => {
+    const temp = [...state];
+    temp.splice(index, 1);
+    setState(temp);
+  };
+
+  const handleStateChange = (e, index, key) => {
+    const values = [...state];
+    values[index][key] = e.target.value;
+    setState(values);
+  };
+
+  return {
+    state,
+    handleAddState,
+    handleRemoveState,
+    handleStateChange,
+  };
+};
 export default function MainContent() {
-  const [experienceRows, setExperienceRows] = useState([
-    { experienceType: "", titleType: "", dateTypeStart: "", dateTypeEnd: "" },
+  // logic for experienceRows
+
+  const {
+    state: experienceRows,
+    handleAddState: handleAddExperienceRow,
+    handleRemoveState: handleRemoveExperienceRow,
+    handleStateChange: handleExperienceChange,
+  } = handleState([
+    {
+      experienceType: "",
+      titleType: "",
+      dateTypeStart: "",
+      dateTypeEnd: "",
+    },
   ]);
 
-  const handleAddExperienceRow = () => {
-    setExperienceRows([
-      ...experienceRows,
-      { experienceType: "", titleType: "", dateTypeStart: "", dateTypeEnd: "" },
-    ]);
-  };
-
-  const handleRemoveExperienceRow = (index) => {
-    const temp = [...experienceRows];
-    temp.splice(index, 1);
-    setExperienceRows(temp);
-  };
-
-  const handleExperienceChange = (e, index, key) => {
-    const values = [...experienceRows];
-    values[index][key] = e.target.value;
-    setExperienceRows(values);
-  };
-
-  const [educationRows, setEducationRows] = useState([
+  const {
+    state: educationRows,
+    handleAddState: handleAddEducationRow,
+    handleRemoveState: handleRemoveEducationRow,
+    handleStateChange: handleEducationChange,
+  } = handleState([
     { experienceType: "", titleType: "", dateTypeStart: "", dateTypeEnd: "" },
   ]);
-
-  const handleAddEducationRow = () => {
-    setEducationRows([
-      ...educationRows,
-      { experienceType: "", titleType: "", dateTypeStart: "", dateTypeEnd: "" },
-    ]);
-  };
-
-  const handleRemoveEducationRow = (index) => {
-    const temp = [...educationRows];
-    temp.splice(index, 1);
-    setEducationRows(temp);
-  };
-
-  const handleEducationChange = (e, index, key) => {
-    const values = [...educationRows];
-    values[index][key] = e.target.value;
-    setEducationRows(values);
-  };
 
   const [nameRows, setNameRows] = useState([
     {
