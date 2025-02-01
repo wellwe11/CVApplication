@@ -3,73 +3,65 @@ import TitleAndInputs from "./titleAndInputs";
 import ExperienceInputs from "./educationSection";
 import "./mainContent.css";
 
-function CVHeaderSection({ nameValue, emailValue, phoneValue, addressValue }) {
-  return (
-    <div className="CVHeaderContainer">
-      <div className="nameContainer">
-        <h1>{nameValue}</h1>
-      </div>
-      <div className="personalInformationContainer">
-        <h3>{emailValue}</h3>
-        <h3>{phoneValue}</h3>
-        <h3>{addressValue}</h3>
-      </div>
-    </div>
-  );
-}
-
-function CVExperiences({
-  sectionTitleValue,
-  locationValue,
-  dateValue,
-  titleName,
-  degreeValue,
-}) {
-  return (
-    <div className="CVExperienceContainer">
-      <h3>{sectionTitleValue}</h3>
-      <div className="CVExperienceContentContainer">
-        <div className="experienceLeftBar">
-          <h4>{dateValue}</h4>
-          <h4>{locationValue}</h4>
-        </div>
-        <div className="experienceRightBar">
-          <h4>{titleName}</h4>
-          <h4>{degreeValue}</h4>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function MainContent() {
-  const [rows, setRows] = useState([
+  const [experienceRows, setExperienceRows] = useState([
     { experienceType: "", titleType: "", dateTypeStart: "", dateTypeEnd: "" },
   ]);
 
-  const handleAddRow = () => {
-    setRows([
-      ...rows,
+  const handleAddExperienceRow = () => {
+    setExperienceRows([
+      ...experienceRows,
       { experienceType: "", titleType: "", dateTypeStart: "", dateTypeEnd: "" },
     ]);
   };
 
-  const handleRemoveRow = (index) => {
-    const temp = [...rows];
+  const handleRemoveExperienceRow = (index) => {
+    const temp = [...experienceRows];
     temp.splice(index, 1);
-    setRows(temp);
+    setExperienceRows(temp);
   };
 
   const handleExperienceChange = (e, index, key) => {
-    const values = [...rows];
+    const values = [...experienceRows];
     values[index][key] = e.target.value;
-    setRows(values);
+    setExperienceRows(values);
   };
 
-  const [name, setName] = useState("");
+  const [educationRows, setEducationRows] = useState([
+    { experienceType: "", titleType: "", dateTypeStart: "", dateTypeEnd: "" },
+  ]);
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
+  const handleAddEducationRow = () => {
+    setEducationRows([
+      ...educationRows,
+      { experienceType: "", titleType: "", dateTypeStart: "", dateTypeEnd: "" },
+    ]);
+  };
+
+  const handleRemoveEducationRow = (index) => {
+    const temp = [...educationRows];
+    temp.splice(index, 1);
+    setEducationRows(temp);
+  };
+
+  const handleEducationChange = (e, index, key) => {
+    const values = [...educationRows];
+    values[index][key] = e.target.value;
+    setEducationRows(values);
+  };
+
+  const [nameRows, setNameRows] = useState([
+    {
+      userName: "",
+      phoneNumber: "",
+      emailAddress: "",
+    },
+  ]);
+
+  const handleNamesRowChange = (e, index, key) => {
+    const values = [...nameRows];
+    values[index][key] = e.target.value;
+    setNameRows(values);
   };
 
   return (
@@ -81,38 +73,44 @@ export default function MainContent() {
       </div>
       <div className="contentContainer">
         <div className="leftContent contentSection">
-          <TitleAndInputs handleNameChange={handleNameChange} name={name} />
-          <ExperienceInputs
-            former={"Work experience"}
-            rows={rows}
-            handleAddRow={handleAddRow}
-            handleRemoveRow={handleRemoveRow}
-            handleChange={handleExperienceChange}
+          <h2>Work experience</h2>
+          <TitleAndInputs
+            rows={nameRows}
+            handleNameChange={handleNamesRowChange}
           />
           <ExperienceInputs
-            former={"Education"}
-            rows={rows}
-            handleAddRow={handleAddRow}
-            handleRemoveRow={handleRemoveRow}
-            handleExperienceChange={handleExperienceChange}
+            rows={experienceRows}
+            handleAddRow={handleAddExperienceRow}
+            handleRemoveRow={handleRemoveExperienceRow}
+            handleChange={handleExperienceChange}
+          />
+          <h2>Education</h2>
+          <ExperienceInputs
+            rows={educationRows}
+            handleAddRow={handleAddEducationRow}
+            handleRemoveRow={handleRemoveEducationRow}
+            handleChange={handleEducationChange}
           />
         </div>
 
         <div className="rightContent contentSection">
-          <TitleAndInputs handleNameChange={handleNameChange} name={name} />
-          <ExperienceInputs
-            former={"Work experience"}
-            rows={rows}
-            handleAddRow={handleAddRow}
-            handleRemoveRow={handleRemoveRow}
-            handleExperienceChange={handleExperienceChange}
+          <TitleAndInputs
+            rows={nameRows}
+            handleNameChange={handleNamesRowChange}
           />
+          <h2>Work experience</h2>
           <ExperienceInputs
-            former={"Education"}
-            rows={rows}
-            handleAddRow={handleAddRow}
-            handleRemoveRow={handleRemoveRow}
-            handleExperienceChange={handleExperienceChange}
+            rows={experienceRows}
+            handleAddRow={handleAddExperienceRow}
+            handleRemoveRow={handleRemoveExperienceRow}
+            handleChange={handleExperienceChange}
+          />
+          <h2>Educatiion</h2>
+          <ExperienceInputs
+            rows={educationRows}
+            handleAddRow={handleAddEducationRow}
+            handleRemoveRow={handleRemoveEducationRow}
+            handleChange={handleEducationChange}
           />
         </div>
       </div>

@@ -2,7 +2,6 @@ import "./educationSection.css";
 import "./educationSectionTwo.css";
 
 export default function ExperienceInputs({
-  former,
   rows,
   handleChange,
   handleAddRow,
@@ -10,7 +9,6 @@ export default function ExperienceInputs({
 }) {
   return (
     <div className="experienceSection">
-      <h2>{former}</h2>
       <div className="experienceInputs">
         {rows.map((row, index) => (
           <div className="experienceInput" key={index}>

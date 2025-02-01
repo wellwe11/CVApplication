@@ -1,27 +1,20 @@
 import "./TitleAndInputs.css";
 
-export default function TitleAndInputs({ handleNameChange, name }) {
+export default function TitleAndInputs({ rows, handleNameChange }) {
   return (
-    <div className="inputsContainer">
-      <div className="headerInputs">
-        <div className="nameContainer">
+    <div className="headerInputs">
+      {rows.map((row, index) =>
+        Object.keys(row).map((key) => (
           <input
-            className="nameInput"
+            key={key}
+            className={key}
             type="text"
-            placeholder="Your name..."
-            value={name}
-            onChange={handleNameChange}
-            required
+            value={row[key]}
+            placeholder={`Your ${key}...`}
+            onChange={(e) => handleNameChange(e, index, key)}
           />
-        </div>
-
-        <div className="emailInputContainer">
-          <input type="email" placeholder="applicant@gmail.com" required />
-        </div>
-        <div className="phoneNumberInputContainer">
-          <input placeholder="+01 234 5678 9" />
-        </div>
-      </div>
+        ))
+      )}
     </div>
   );
 }
