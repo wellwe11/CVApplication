@@ -83,21 +83,13 @@ export default function MainContent() {
         <div className="leftContent contentSection">
           <TitleAndInputs handleNameChange={handleNameChange} name={name} />
           <ExperienceInputs
-            Type="input"
-            experienceType={"companyName"}
-            titleType={"title"}
-            dateTypeStart={"dateStart"}
             former={"Work experience"}
             rows={rows}
             handleAddRow={handleAddRow}
             handleRemoveRow={handleRemoveRow}
-            handleExperienceChange={handleExperienceChange}
+            handleChange={handleExperienceChange}
           />
           <ExperienceInputs
-            Type="input"
-            experienceType={"SchoolName"}
-            titleType={"studies"}
-            dateTypeEnd={"dateEnd"}
             former={"Education"}
             rows={rows}
             handleAddRow={handleAddRow}
@@ -107,13 +99,8 @@ export default function MainContent() {
         </div>
 
         <div className="rightContent contentSection">
-          <CVHeaderSection />
-          <CVExperiences />
+          <TitleAndInputs handleNameChange={handleNameChange} name={name} />
           <ExperienceInputs
-            Type="input"
-            experienceType={"companyName"}
-            titleType={"title"}
-            dateTypeStart={"dateStart"}
             former={"Work experience"}
             rows={rows}
             handleAddRow={handleAddRow}
@@ -121,10 +108,6 @@ export default function MainContent() {
             handleExperienceChange={handleExperienceChange}
           />
           <ExperienceInputs
-            Type="input"
-            experienceType={"SchoolName"}
-            titleType={"studies"}
-            dateTypeEnd={"dateEnd"}
             former={"Education"}
             rows={rows}
             handleAddRow={handleAddRow}

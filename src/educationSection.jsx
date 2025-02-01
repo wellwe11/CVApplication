@@ -2,16 +2,11 @@ import "./educationSection.css";
 import "./educationSectionTwo.css";
 
 export default function ExperienceInputs({
-  Type,
   former,
   rows,
+  handleChange,
   handleAddRow,
   handleRemoveRow,
-  handleExperienceChange,
-  experienceType,
-  titleType,
-  dateTypeStart,
-  dateTypeEnd,
 }) {
   return (
     <div className="experienceSection">
@@ -26,41 +21,17 @@ export default function ExperienceInputs({
               >
                 -
               </button>
-              <Type
-                type="text"
-                value={row[experienceType] || ""}
-                onChange={(e) =>
-                  handleExperienceChange(e, index, experienceType)
-                }
-                placeholder={experienceType}
-                className="experienceInputType"
-              />
-            </div>
-            <div className="experiencePosition">
-              <Type
-                type="text"
-                value={row[titleType] || ""}
-                onChange={(e) => handleExperienceChange(e, index, titleType)}
-                placeholder={titleType}
-                className="experiencePositionClass"
-              />
-            </div>
-            <div className="experienceDateContainer">
-              <Type
-                type="text"
-                value={row[dateTypeStart] || ""}
-                onChange={(e) =>
-                  handleExperienceChange(e, index, dateTypeStart)
-                }
-                className="experienceDate"
-              />
-              <p>-</p>
-              <Type
-                type="text"
-                value={row[dateTypeEnd] || ""}
-                onChange={(e) => handleExperienceChange(e, index, dateTypeEnd)}
-                className="experienceDate"
-              />
+              <div>
+                {Object.keys(row).map((key) => (
+                  <input
+                    key={key}
+                    type="text"
+                    value={row[key]}
+                    placeholder={key}
+                    onChange={(e) => handleChange(e, index, key)}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         ))}
