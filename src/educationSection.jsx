@@ -22,46 +22,49 @@ export default function ExperienceInputs({
   handleAddRow,
   handleRemoveRow,
   titleType,
-  experienceTitle,
 }) {
-  const setSelfDisplayNone = (e) => {
-    e.target.style.display = "none";
-  };
+  const { state: titleState, toggleState: handleTitleState } =
+    handleState(false);
 
   return (
     <div className="experienceSection">
       <div className="titleAndButton">
         <h2>{titleType}</h2>
-        <button className="expandExperienceInputs"></button>
+        <button
+          className="expandExperienceInputs"
+          onClick={handleTitleState}
+        ></button>
       </div>
       <div className="experienceInputs">
         {rows.map((row, index) => (
           <div className="experienceInput" key={index}>
             <div className={`experienceHeader`}>
               <button
-                onClick={() => handleRemoveRow(index)}
+                onClick={() => {
+                  handleRemoveRow(index);
+                }}
                 className="deleteRowButton"
               >
                 -
               </button>
               <div className={`experienceInputContainer`}>
-                <div>
-                  <div>
-                    <h4>{experienceTitle}</h4>
-                  </div>
-                  {Object.keys(row).map((key) => (
-                    <div key={key}>
-                      <h5>{key}</h5>
-                      <input
-                        key={key}
-                        type="text"
-                        value={row[key]}
-                        placeholder={key}
-                        onChange={(e) => handleChange(e, index, key)}
-                      />
-                    </div>
-                  ))}
-                </div>
+                {titleState && (
+                  <>
+                    <h4>{row.experienceType}</h4>
+                    {Object.keys(row).map((key) => (
+                      <div key={key}>
+                        <h5>{key}</h5>
+                        <input
+                          key={key}
+                          type="text"
+                          value={row[key]}
+                          placeholder={key}
+                          onChange={(e) => handleChange(e, index, key)}
+                        />
+                      </div>
+                    ))}
+                  </>
+                )}
               </div>
             </div>
           </div>
