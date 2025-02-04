@@ -15,7 +15,6 @@
 }
 
 .leftContent.contentSection .experienceHeader {
-  display: flex;
   height: 30px;
 }
 
@@ -81,13 +80,6 @@
 .leftContent.contentSection .deleteRowButton:hover,
 .leftContent.contentSection .addRowButton:hover {
   background-color: lightgray;
-}
-
-.leftContent.contentSection .experienceInput {
-  margin-top: 10px;
-
-  display: flex;
-  flex-direction: column;
 }
 
 .leftContent.contentSection .experienceInputType,

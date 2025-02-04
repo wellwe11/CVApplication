@@ -7,7 +7,6 @@ const handleState = (stateToUse) => {
 
   const toggleState = () => {
     setState((prevState) => !prevState);
-    console.log(state);
   };
 
   return {
@@ -29,6 +28,8 @@ export default function ExperienceInputs({
     handleState(false);
   const { state: hideAddButton, toggleState: handleHideAddButton } =
     handleState(false);
+  const { state: hideWindow, toggleState: handleHideWindow } =
+    handleState(false);
 
   const [rowState, setRowState] = useState({});
 
@@ -38,6 +39,11 @@ export default function ExperienceInputs({
       [index]: !prevState[index],
     }));
   };
+
+  function changeDisplay(e) {
+    console.log(e);
+    console.log(e.srcElement);
+  }
 
   return (
     <div className="experienceSection">
@@ -49,68 +55,75 @@ export default function ExperienceInputs({
             handleTitleState();
             handleHideAddButton(false);
           }}
-        ></button>
+        >
+          {hideAddButton ? "-" : "+"}
+        </button>
       </div>
       <div className="experienceInputs">
         {rows.map((row, index) => (
-          <div className="experienceInput" key={index}>
-            <div className={`experienceHeader`}>
-              <div className={`experienceInputContainer`}>
-                {titleState && (
-                  <>
-                    <button
-                      onClick={() => {
-                        displayInputs(index);
-                        handleHideButton(true);
-                        handleHideAddButton();
-                      }}
-                      className={!hideButton ? "displayBar" : "hideBar"}
-                    >
-                      Click me
-                    </button>
-                    <h4>{row.experienceType}</h4>
-                    {Object.keys(row).map((key) => (
-                      <div
-                        key={key}
-                        className={rowState[index] ? "displayBar" : "hideBar"}
-                      >
-                        <h5>{key}</h5>
-                        <input
-                          key={row.id}
-                          type="text"
-                          value={row[key]}
-                          placeholder={key}
-                          onChange={(e) => handleChange(e, index, key)}
-                        />
-                      </div>
-                    ))}
-                    <button
-                      className={rowState[index] ? "displayBar" : "hideBar"}
-                      onClick={() => {
-                        displayInputs(index);
-                        handleHideButton(true);
-                        handleHideAddButton(true);
-                      }}
-                    >
-                      Save
-                    </button>
-                    <button
-                      onClick={() => {
-                        handleRemoveRow(index);
-                        setRowState(index);
-                        handleHideButton(false);
-                        handleHideAddButton(false);
-                      }}
-                      className={`deleteRowButton ${
-                        rowState[index] ? "displayBar" : "hideBar"
-                      }`}
-                    >
-                      Delete
-                    </button>
-                  </>
-                )}
-              </div>
-            </div>
+          <div
+            className={`experienceInput`}
+            key={index}
+            onClick={(e) => changeDisplay(e)}
+          >
+            {titleState && (
+              <>
+                <button
+                  onClick={() => {
+                    displayInputs(index);
+                    handleHideButton(true);
+                    handleHideAddButton();
+                    handleHideWindow(false);
+                  }}
+                  className={!hideButton ? "displayBar" : "hideBar"}
+                >
+                  Click me
+                </button>
+                <h4 className={!hideButton ? "displayBar" : "hideBar"}>
+                  {row.experienceType}
+                </h4>
+                {Object.keys(row).map((key) => (
+                  <div
+                    key={key}
+                    className={rowState[index] ? "displayBar" : "hideBar"}
+                  >
+                    <h5>{key}</h5>
+                    <input
+                      key={row.id}
+                      type="text"
+                      value={row[key]}
+                      placeholder={key}
+                      onChange={(e) => handleChange(e, index, key)}
+                    />
+                  </div>
+                ))}
+                <button
+                  type="submit"
+                  className={rowState[index] ? "displayBar" : "hideBar"}
+                  onClick={() => {
+                    displayInputs(index);
+                    handleHideButton(true);
+                    handleHideAddButton(true);
+                  }}
+                  disabled={Object.values(row)[0].length > 0 ? false : true}
+                >
+                  Save
+                </button>
+                <button
+                  onClick={() => {
+                    handleRemoveRow(index);
+                    setRowState(index);
+                    handleHideButton(false);
+                    handleHideAddButton(false);
+                  }}
+                  className={`deleteRowButton ${
+                    rowState[index] ? "displayBar" : "hideBar"
+                  }`}
+                >
+                  Delete
+                </button>
+              </>
+            )}
           </div>
         ))}
         <button
