@@ -38,9 +38,6 @@ export default function ExperienceInputs({
       [index]: !prevState[index],
     }));
   };
-  const handleHideSelf = (rows) => {
-    console.log(rows.length);
-  };
 
   return (
     <div className="experienceSection">
@@ -50,7 +47,7 @@ export default function ExperienceInputs({
           className="expandExperienceInputs"
           onClick={() => {
             handleTitleState();
-            handleHideAddButton();
+            handleHideAddButton(false);
           }}
         ></button>
       </div>
@@ -87,22 +84,33 @@ export default function ExperienceInputs({
                         />
                       </div>
                     ))}
+                    <button
+                      className={rowState[index] ? "displayBar" : "hideBar"}
+                      onClick={() => {
+                        displayInputs(index);
+                        handleHideButton(true);
+                        handleHideAddButton(true);
+                      }}
+                    >
+                      Save
+                    </button>
+                    <button
+                      onClick={() => {
+                        handleRemoveRow(index);
+                        setRowState(index);
+                        handleHideButton(false);
+                        handleHideAddButton(false);
+                      }}
+                      className={`deleteRowButton ${
+                        rowState[index] ? "displayBar" : "hideBar"
+                      }`}
+                    >
+                      Delete
+                    </button>
                   </>
                 )}
               </div>
             </div>
-            <button
-              onClick={() => {
-                handleRemoveRow(index);
-                setRowState(index);
-                handleHideButton(false);
-              }}
-              className={`deleteRowButton ${
-                rowState[index] ? "displayBar" : "hideBar"
-              }`}
-            >
-              -
-            </button>
           </div>
         ))}
         <button
