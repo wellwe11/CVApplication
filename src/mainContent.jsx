@@ -11,7 +11,13 @@ const handleState = (stateToUse) => {
   const handleAddState = () => {
     setState([
       ...state,
-      { experienceType: "", titleType: "", dateTypeStart: "", dateTypeEnd: "" },
+      {
+        experienceType: "",
+        titleType: "",
+        dateTypeStart: "",
+        dateTypeEnd: "",
+        id: crypto.randomUUID(),
+      },
     ]);
   };
 
@@ -61,6 +67,7 @@ export default function MainContent() {
       titleType: "",
       dateTypeStart: "",
       dateTypeEnd: "",
+      id: crypto.randomUUID(),
     },
   ]);
 
@@ -70,7 +77,13 @@ export default function MainContent() {
     handleRemoveState: handleRemoveEducationRow,
     handleStateChange: handleEducationChange,
   } = handleState([
-    { experienceType: "", titleType: "", dateTypeStart: "", dateTypeEnd: "" },
+    {
+      experienceType: "",
+      titleType: "",
+      dateTypeStart: "",
+      dateTypeEnd: "",
+      id: crypto.randomUUID(),
+    },
   ]);
 
   return (
