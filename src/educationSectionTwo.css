@@ -1,100 +1,36 @@
-FIX TOMORROW SO IT LOOKS FINE .rightContent.contentSection .contentSection h2 {
-  margin-left: 30px;
+.leftContent.contentSection .titleAndButton {
+  display: flex;
+  justify-content: space-between;
 }
 
-.rightContent.contentSection .experienceSection {
+.leftContent.contentSection .titleAndButton button {
+  height: 20px;
+  align-self: center;
 }
 
-.rightContent.contentSection .experienceSection h2 {
+.leftContent.contentSection .experienceHeader {
+  height: fit-content;
+  min-height: 100px;
+  width: 100%;
+}
+
+.leftContent.contentSection .experienceHeader h5 {
   margin: 0;
-  margin-left: 30px;
 }
 
-.rightContent.contentSection .experienceInputs {
+.leftContent.contentSection .experienceHeader div input {
+  height: 20px;
 }
 
-.rightContent.contentSection .experienceHeader {
-  display: flex;
-  height: 30px;
-}
-
-.rightContent.contentSection .experiencePosition {
-  margin-left: 30px;
-}
-
-.rightContent.contentSection .experiencePosition input {
-  height: 30px;
-}
-
-.rightContent.contentSection .experienceDate {
-  margin-left: 30px;
-
-  height: 30px;
-  width: 20px;
-
+.displayBar {
   display: flex;
 }
 
-.rightContent.contentSection .experienceDate input {
-  text-align: start;
-  height: 30px;
+.hideBar {
+  display: none;
 }
 
-.rightContent.contentSection .experienceDate input:hover {
-  cursor: text;
-}
-
-.rightContent.contentSection
-  .experienceDate
-  input::-webkit-calendar-picker-indicator {
-  background-color: lightgray;
-}
-
-.rightContent.contentSection
-  .experienceDate
-  input::-webkit-calendar-picker-indicator:hover {
-  background-color: gray;
-  cursor: pointer;
-}
-
-.rightContent.contentSection .experienceDate p {
-  width: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.rightContent.contentSection .experienceInput {
-  margin-top: 10px;
-
-  display: flex;
+.leftContent.contentSection .experienceInputs > div {
   flex-direction: column;
-}
-
-.rightContent.contentSection .experienceInput input {
-  width: 168px;
-  background-color: white;
-  color: black;
-
-  border: none;
-
-  border-bottom: 1px solid gray;
-}
-
-.rightContent.contentSection .experienceInput input:focus,
-.rightContent.contentSection .experienceInput input:hover {
-  outline: none;
-  border-bottom: 1px solid black;
-}
-
-.rightContent.contentSection .experienceDate {
-  border: none;
-}
-
-.rightContent.contentSection .addRowButton {
-  display: none;
-}
-
-.rightContent.contentSection .deleteRowButton {
-  display: none;
+  justify-content: center;
 }

@@ -28,11 +28,6 @@ h6 {
 
   height: fit-content;
   min-height: 300px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
 }
 
 .leftContent {
@@ -54,4 +49,8 @@ h6 {
 
   min-height: 100vh;
   min-width: 100%;
+}
+
+.leftContent.contentSection .headerInputs {
+  margin-bottom: 15px;
 }

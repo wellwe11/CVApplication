@@ -2,7 +2,9 @@ import { useState } from "react";
 import TitleAndInputs from "./titleAndInputs";
 import ExperienceInputs from "./educationSection";
 import "./mainContent.css";
+import "./titleAndInputs.css";
 
+// abstract usestate to manage input-objects. They are mainly the same
 const handleState = (stateToUse) => {
   const [state, setState] = useState(stateToUse);
 
@@ -33,7 +35,20 @@ const handleState = (stateToUse) => {
   };
 };
 export default function MainContent() {
-  // logic for experienceRows
+  //
+  const [nameRows, setNameRows] = useState([
+    {
+      "User name": "",
+      "Phone number": "",
+      "Email Address": "",
+    },
+  ]);
+
+  const handleNamesRowChange = (e, index, key) => {
+    const values = [...nameRows];
+    values[index][key] = e.target.value;
+    setNameRows(values);
+  };
 
   const {
     state: experienceRows,
@@ -58,20 +73,6 @@ export default function MainContent() {
     { experienceType: "", titleType: "", dateTypeStart: "", dateTypeEnd: "" },
   ]);
 
-  const [nameRows, setNameRows] = useState([
-    {
-      userName: "",
-      phoneNumber: "",
-      emailAddress: "",
-    },
-  ]);
-
-  const handleNamesRowChange = (e, index, key) => {
-    const values = [...nameRows];
-    values[index][key] = e.target.value;
-    setNameRows(values);
-  };
-
   return (
     <div>
       <div className="headerContainer">
@@ -81,19 +82,22 @@ export default function MainContent() {
       </div>
       <div className="contentContainer">
         <div className="leftContent contentSection">
-          <h2>Work experience</h2>
+          <div>
+            <h2>Personal Details</h2>
+          </div>
           <TitleAndInputs
             rows={nameRows}
             handleNameChange={handleNamesRowChange}
           />
           <ExperienceInputs
+            titleType={"Work experience"}
             rows={experienceRows}
             handleAddRow={handleAddExperienceRow}
             handleRemoveRow={handleRemoveExperienceRow}
             handleChange={handleExperienceChange}
           />
-          <h2>Education</h2>
           <ExperienceInputs
+            titleType={"Education"}
             rows={educationRows}
             handleAddRow={handleAddEducationRow}
             handleRemoveRow={handleRemoveEducationRow}
@@ -106,14 +110,12 @@ export default function MainContent() {
             rows={nameRows}
             handleNameChange={handleNamesRowChange}
           />
-          <h2>Work experience</h2>
           <ExperienceInputs
             rows={experienceRows}
             handleAddRow={handleAddExperienceRow}
             handleRemoveRow={handleRemoveExperienceRow}
             handleChange={handleExperienceChange}
           />
-          <h2>Educatiion</h2>
           <ExperienceInputs
             rows={educationRows}
             handleAddRow={handleAddEducationRow}

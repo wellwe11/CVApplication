@@ -1,122 +1,160 @@
-:root {
-  --inputContainer-width: 400px;
-  --input-width: calc(var(--inputContainer-width) / 2 - 7px);
-}
+/* ---------------------------------- v Left side v ---------------------------------- */
 
-.titleName {
-  height: fit-content;
-  margin: 0;
-}
-
-.headerInputs {
-  max-width: var(--inputContainer-width);
-  margin-left: 30px;
-}
-
-.headerAndInputsContainer {
-  /* border: 1px solid var(--borderColor); */
-}
-
-.titleSelectorContainerInactive {
-  border: 1px solid transparent;
+.leftContent.contentSection {
   display: flex;
-}
-
-.titleSelectorContainerActive {
-  border: 1px solid black;
-  display: flex;
-}
-
-.titleSelectorContainerInactive button,
-.titleSelectorContainerActive button {
-  height: 30px;
-}
-
-.titleSelectorName {
-  width: 100%;
-
-  height: 100%;
-
-  margin: 0px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dropdownHidden {
-  display: none;
-}
-
-.dropdownDisplayed {
-  display: flex;
-}
-
-.titleSelections {
-  margin-top: 29px;
-  margin-left: -1px;
-  position: absolute;
-
   flex-direction: column;
 
-  border-top: none;
-  border: 1px solid black;
+  align-content: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
 }
 
-.titleSelections button {
+.leftContent > div {
+  margin: 0;
+
+  background-color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 90%;
+}
+
+.leftContent > div h2 {
+  margin-left: 5%;
+}
+
+.leftContent.contentSection div {
+  align-self: center;
+}
+
+.leftContent .headerInputs {
+  min-width: 90%;
+
+  background-color: white;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 240px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.leftContent .headerInputs h4 {
+  margin: 0;
+
+  align-self: flex-start;
+}
+
+.leftContent .headerInputs div {
+  width: 90%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftContent .headerInputs input {
+  width: 100%;
+  height: 10px;
+  padding: 7px;
+  background-color: rgb(120, 120, 120, 0.1);
+  color: black;
+
+  border-radius: 4px;
+  border: none;
+  outline: 1.5px solid transparent;
+  transition: outline 0.2s ease;
+}
+
+.leftContent .headerInputs input:focus {
+  transition: outline 1s ease-out;
+  outline: 1.5px solid gray;
+}
+
+.leftContent .experienceSection {
+}
+
+/* ---------------------------------- v Right side v ---------------------------------- */
+
+.rightContent .headerInputs {
+  display: grid;
+
+  grid-template-rows: 65% 35%;
+  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+
+  height: 100px;
+  width: 100%;
+}
+
+.rightContent .headerInputs div {
+  display: flex;
   align-items: center;
   justify-content: center;
-}
-.titleSelectorContainer button:hover,
-.titleSelections button:hover {
-  background-color: lightgray;
+
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+  max-width: 350px;
 }
 
-.nameContainer button {
-  width: 30px;
-  height: 25px;
+.rightContent .headerInputs div input {
+  pointer-events: none;
 
-  background-color: white;
+  width: 100%;
+}
+
+.rightContent .headerInputs div input::placeholder {
+  color: transparent;
+}
+
+.rightContent .headerInputs div:first-child {
+  max-width: 600px;
+  min-width: 200px;
+  background-color: orange;
+  grid-row: 1;
+  grid-column: 2 / 4;
+}
+
+.rightContent .headerInputs div:first-child input {
+  font-size: 30px;
+  text-align: center;
+
+  background-color: orange;
   color: black;
 
   border: none;
-
-  margin-left: -30px;
 }
 
-.nameContainer,
-.emailInputContainer,
-.phoneNumberInputContainer {
-  display: flex;
+.rightContent .headerInputs div:nth-child(2) {
+  background-color: green;
+  grid-row: 2;
+  grid-column: 2;
 }
 
-.nameContainer input,
-.emailInputContainer input,
-.phoneNumberInputContainer input {
-  border: none;
-  border-bottom: 1px solid gray;
-  margin-bottom: 10px;
+.rightContent .headerInputs div:nth-child(3) {
+  grid-row: 2;
+  grid-column: 3;
+}
 
-  background-color: white;
+.rightContent .headerInputs div:nth-child(2),
+.rightContent .headerInputs div:nth-child(3) {
+  background-color: green;
+}
+
+.rightContent .headerInputs div:nth-child(2) input,
+.rightContent .headerInputs div:nth-child(3) input {
+  font-size: 18px;
+  text-align: center;
+
+  background-color: green;
   color: black;
-
-  outline: none;
+  border: none;
 }
 
-.nameContainer input:focus,
-.nameContainer input:hover,
-.emailInputContainer input:focus,
-.emailInputContainer input:hover,
-.phoneNumberInputContainer input:focus,
-.phoneNumberInputContainer input:hover {
-  border-bottom: 1px solid black;
-}
-
-.headerInputs h4 {
-  margin: 0;
-}
-
-.headerInputs input {
-  width: var(--input-width);
-  height: 20px;
+.rightContent .headerInputs h4 {
+  display: none;
 }
