@@ -37,11 +37,6 @@ export default function ExperienceInputs({
     }));
   };
 
-  function changeDisplay(e) {
-    console.log(e);
-    console.log(e.srcElement);
-  }
-
   return (
     <div className="experienceSection">
       <div className="titleAndButton">
@@ -58,17 +53,14 @@ export default function ExperienceInputs({
       </div>
       <div className="experienceInputs">
         {rows.map((row, index) => (
-          <div
-            className={`experienceInput`}
-            key={index}
-            onClick={(e) => changeDisplay(e)}
-          >
+          <div className={`experienceInput`} key={index}>
             {titleState && (
               <>
                 <button
                   onClick={() => {
                     displayInputs(index);
                     handleHideButton(true);
+                    handleHideAddButton(true);
                   }}
                   className={!hideButton ? "displayBar" : "hideBar"}
                 >
@@ -82,7 +74,7 @@ export default function ExperienceInputs({
                 <div className="inputsContainer">
                   <div
                     className={`inputsAndInputsButtonsContainer ${
-                      rowState[index] ? "displayBar" : "hideBar"
+                      rowState[index] ? "scaleUpBar" : "minimizeBar"
                     }`}
                   >
                     {Object.keys(row).map((key) => (
@@ -108,7 +100,7 @@ export default function ExperienceInputs({
                         handleRemoveRow(index);
                         setRowState(index);
                         handleHideButton(false);
-                        handleHideAddButton(false);
+                        handleHideAddButton(true);
                       }}
                       className="deleteRowButton"
                     >
@@ -120,6 +112,7 @@ export default function ExperienceInputs({
                       onClick={() => {
                         displayInputs(index);
                         handleHideButton(true);
+                        handleHideAddButton(true);
                       }}
                       disabled={Object.values(row)[0].length > 0 ? false : true}
                     >
@@ -135,10 +128,12 @@ export default function ExperienceInputs({
           onClick={() => {
             handleAddRow();
             displayInputs(rows.length);
-            handleHideAddButton();
-            handleHideButton(true);
+            handleHideButton(false);
+            handleHideAddButton(true);
           }}
-          className={`addRowButton ${hideAddButton ? "displayBar" : "hideBar"}`}
+          className={`addRowButton ${
+            hideAddButton ? "scaleUpBar" : "minimizeBar"
+          }`}
         >
           +
         </button>

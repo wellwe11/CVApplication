@@ -1,17 +1,33 @@
+/* global margin  */
+.leftContent.contentSection input {
+  margin-top: 5px;
+}
+
+.leftContent.contentSection {
+}
+
 .leftContent.contentSection .experienceSection {
   height: fit-content;
+  min-height: 50px;
+  border-radius: 10px;
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+
+  margin-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.87);
 }
 
 .leftContent.contentSection .titleAndButton {
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 5px;
+
+  width: 100%;
 }
 
 .leftContent.contentSection .experienceInputs {
@@ -19,6 +35,7 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  background-color: aliceblue;
 }
 
 .leftContent.contentSection .experienceInputs .experienceInput {
@@ -29,13 +46,42 @@
   justify-content: space-evenly;
   height: 100%;
   width: 100%;
+
+  background-color: white;
 }
 
-.leftContent.contentSection .experienceInputs .experienceInput {
+.leftContent.contentSection .experienceInputs .experienceInput:hover {
+  cursor: pointer;
+}
+
+.leftContent.contentSection .addRowButton {
+  margin-top: 10px;
+
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+.leftContent.contentSection .addRowButton:hover {
+  cursor: pointer;
+  font-size: 24px;
 }
 
 .leftContent.contentSection .experienceInputs .experienceInput h4 {
   margin: 10px;
+}
+
+.leftContent.contentSection .experienceInputs .experienceInput > button {
+  align-items: center;
+  justify-content: center;
 }
 
 .leftContent.contentSection .experienceInputs .inputsContainer {
@@ -43,6 +89,7 @@
 }
 
 .leftContent.contentSection .inputsAndInputsButtonsContainer {
+  display: flex;
   flex-direction: column;
   width: 90%;
   align-items: center;
@@ -52,7 +99,7 @@
 .leftContent.contentSection .inputsAndInputsButtonsContainer div {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 97%;
 }
 
 .leftContent.contentSection .inputsAndInputsButtonsContainer div:nth-child(2) {
@@ -70,7 +117,7 @@
 }
 
 .leftContent.contentSection .inputsAndInputsButtonsContainer div:nth-child(4) {
-  margin-top: -49px;
+  margin-top: -54px;
   margin-right: -54%;
 }
 
@@ -149,13 +196,6 @@
   color: black;
 }
 
-.leftContent.contentSection .experienceInputs button {
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-  height: 22px;
-}
-
 .leftContent.contentSection .titleAndButton h2 {
   margin: 15px;
 }
@@ -185,14 +225,25 @@
   margin: 0;
 }
 
+.minimizeBar {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.scaleUpBar {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+
 .displayBar {
   display: flex;
 }
 
 .hideBar {
   display: none;
-}
-
-input:requied {
-  background-color: orange;
 }
