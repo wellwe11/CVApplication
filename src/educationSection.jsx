@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./educationSection.css";
 import "./educationSectionTwo.css";
 
 const handleState = (stateToUse) => {
@@ -27,8 +26,6 @@ export default function ExperienceInputs({
   const { state: hideButton, toggleState: handleHideButton } =
     handleState(false);
   const { state: hideAddButton, toggleState: handleHideAddButton } =
-    handleState(false);
-  const { state: hideWindow, toggleState: handleHideWindow } =
     handleState(false);
 
   const [rowState, setRowState] = useState({});
@@ -72,56 +69,64 @@ export default function ExperienceInputs({
                   onClick={() => {
                     displayInputs(index);
                     handleHideButton(true);
-                    handleHideAddButton();
-                    handleHideWindow(false);
                   }}
                   className={!hideButton ? "displayBar" : "hideBar"}
                 >
-                  Click me
+                  +
                 </button>
                 <h4 className={!hideButton ? "displayBar" : "hideBar"}>
-                  {row.experienceType}
+                  {Object.values(row)[0].length > 0
+                    ? Object.values(row)[0]
+                    : "Placeholder"}
                 </h4>
-                {Object.keys(row).map((key) => (
+                <div className="inputsContainer">
                   <div
-                    key={key}
-                    className={rowState[index] ? "displayBar" : "hideBar"}
+                    className={`inputsAndInputsButtonsContainer ${
+                      rowState[index] ? "displayBar" : "hideBar"
+                    }`}
                   >
-                    <h5>{key}</h5>
-                    <input
-                      key={row.id}
-                      type="text"
-                      value={row[key]}
-                      placeholder={key}
-                      onChange={(e) => handleChange(e, index, key)}
-                    />
+                    {Object.keys(row).map((key) => (
+                      <div key={key}>
+                        <h5>{key}</h5>
+                        <input
+                          key={row.id}
+                          type="text"
+                          value={row[key]}
+                          placeholder={key}
+                          onChange={(e) => handleChange(e, index, key)}
+                        />
+                      </div>
+                    ))}
                   </div>
-                ))}
-                <button
-                  type="submit"
-                  className={rowState[index] ? "displayBar" : "hideBar"}
-                  onClick={() => {
-                    displayInputs(index);
-                    handleHideButton(true);
-                    handleHideAddButton(true);
-                  }}
-                  disabled={Object.values(row)[0].length > 0 ? false : true}
-                >
-                  Save
-                </button>
-                <button
-                  onClick={() => {
-                    handleRemoveRow(index);
-                    setRowState(index);
-                    handleHideButton(false);
-                    handleHideAddButton(false);
-                  }}
-                  className={`deleteRowButton ${
-                    rowState[index] ? "displayBar" : "hideBar"
-                  }`}
-                >
-                  Delete
-                </button>
+                  <div
+                    className={`experienceInputContainerButtons ${
+                      rowState[index] ? "displayBar" : "hideBar"
+                    }`}
+                  >
+                    <button
+                      onClick={() => {
+                        handleRemoveRow(index);
+                        setRowState(index);
+                        handleHideButton(false);
+                        handleHideAddButton(false);
+                      }}
+                      className="deleteRowButton"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      type="submit"
+                      className="submitBtn"
+                      onClick={() => {
+                        displayInputs(index);
+                        handleHideButton(true);
+                      }}
+                      disabled={Object.values(row)[0].length > 0 ? false : true}
+                    >
+                      Save
+                    </button>
+                  </div>
+                </div>
               </>
             )}
           </div>

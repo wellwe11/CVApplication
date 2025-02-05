@@ -1,5 +1,10 @@
 .leftContent.contentSection .experienceSection {
   height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .leftContent.contentSection .titleAndButton {
@@ -7,6 +12,148 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 5px;
+}
+
+.leftContent.contentSection .experienceInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.leftContent.contentSection .experienceInputs .experienceInput {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+}
+
+.leftContent.contentSection .experienceInputs .experienceInput {
+}
+
+.leftContent.contentSection .experienceInputs .experienceInput h4 {
+  margin: 10px;
+}
+
+.leftContent.contentSection .experienceInputs .inputsContainer {
+  width: 100%;
+}
+
+.leftContent.contentSection .inputsAndInputsButtonsContainer {
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+  justify-self: center;
+}
+
+.leftContent.contentSection .inputsAndInputsButtonsContainer div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.leftContent.contentSection .inputsAndInputsButtonsContainer div:nth-child(2) {
+  margin-top: 10px;
+}
+
+.leftContent.contentSection .inputsAndInputsButtonsContainer div:nth-child(3),
+.leftContent.contentSection .inputsAndInputsButtonsContainer div:nth-child(4) {
+  width: 45%;
+  margin-top: 10px;
+}
+
+.leftContent.contentSection .inputsAndInputsButtonsContainer div:nth-child(3) {
+  margin-left: -53.5%;
+}
+
+.leftContent.contentSection .inputsAndInputsButtonsContainer div:nth-child(4) {
+  margin-top: -49px;
+  margin-right: -54%;
+}
+
+/*hide id input*/
+.leftContent.contentSection .inputsAndInputsButtonsContainer div:nth-child(5) {
+  display: none;
+}
+
+.leftContent.contentSection .inputsAndInputsButtonsContainer input {
+  height: 15px;
+  padding: 7px;
+  background-color: rgb(120, 120, 120, 0.1);
+  color: black;
+
+  border-radius: 4px;
+  border: none;
+  outline: 1.5px solid transparent;
+  transition: outline 0.2s ease;
+
+  width: 97%;
+}
+
+.leftContent.contentSection .inputsAndInputsButtonsContainer input:focus {
+  transition: outline 1s ease-out;
+  outline: 1.5px solid gray;
+}
+
+.leftContent.contentSection .inputsAndInputsButtonsContainer div input {
+  align-self: center;
+}
+
+.leftContent.contentSection .experienceInputContainerButtons {
+  width: 95%;
+  margin-top: 15px;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.leftContent.contentSection .experienceInputContainerButtons button {
+  margin-left: 10px;
+}
+
+.leftContent.contentSection .submitBtn {
+  transition: background-color 0.2s ease;
+  background-color: gray;
+  color: gainsboro;
+}
+
+.leftContent.contentSection .submitBtn:hover {
+  transition: background-color 0.2s ease;
+  background-color: gainsboro;
+  color: gray;
+}
+
+.leftContent.contentSection .submitBtn:disabled {
+  background-color: gray;
+  transition: background-color 0.2s ease;
+  border: 1px solid hwb(0 27% 50%);
+}
+.leftContent.contentSection .submitBtn:disabled:hover {
+  transition: background-color 0.2s ease;
+  background-color: gainsboro;
+  color: gray;
+}
+
+.leftContent.contentSection
+  .experienceInputs
+  .experienceInput
+  button:nth-child(1) {
+  height: 22px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+
+  background-color: white;
+  color: black;
+}
+
+.leftContent.contentSection .experienceInputs button {
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  height: 22px;
 }
 
 .leftContent.contentSection .titleAndButton h2 {
@@ -38,10 +185,6 @@
   margin: 0;
 }
 
-.leftContent.contentSection .experienceInput div input {
-  height: 20px;
-}
-
 .displayBar {
   display: flex;
 }
@@ -50,10 +193,6 @@
   display: none;
 }
 
-.leftContent.contentSection .experienceInput {
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  height: fit-content;
-  width: 90%;
+input:requied {
+  background-color: orange;
 }
