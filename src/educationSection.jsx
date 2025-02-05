@@ -51,7 +51,11 @@ export default function ExperienceInputs({
           {hideAddButton ? "-" : "+"}
         </button>
       </div>
-      <div className="experienceInputs">
+      <div
+        className={`experienceInputs ${
+          titleState ? "scaleUpBar" : "minimizeBar"
+        }`}
+      >
         {rows.map((row, index) => (
           <div className={`experienceInput`} key={index}>
             {titleState && (
@@ -62,15 +66,17 @@ export default function ExperienceInputs({
                     handleHideButton(true);
                     handleHideAddButton(true);
                   }}
-                  className={!hideButton ? "displayBar" : "hideBar"}
+                  className={`experienceButton ${
+                    !hideButton ? "displayBar" : "hideBar"
+                  }`}
                 >
-                  +
+                  <h4 className={!hideButton ? "displayBar" : "hideBar"}>
+                    {Object.values(row)[0].length > 0
+                      ? Object.values(row)[0]
+                      : "Placeholder"}
+                  </h4>
                 </button>
-                <h4 className={!hideButton ? "displayBar" : "hideBar"}>
-                  {Object.values(row)[0].length > 0
-                    ? Object.values(row)[0]
-                    : "Placeholder"}
-                </h4>
+
                 <div className="inputsContainer">
                   <div
                     className={`inputsAndInputsButtonsContainer ${
@@ -132,7 +138,7 @@ export default function ExperienceInputs({
             handleHideAddButton(true);
           }}
           className={`addRowButton ${
-            hideAddButton ? "scaleUpBar" : "minimizeBar"
+            hideAddButton ? "scaleUpBarBtn" : "minimizeBar"
           }`}
         >
           +

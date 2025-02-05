@@ -24,7 +24,6 @@ h6 {
 
 .contentSection {
   margin: 10px;
-  border: 1px solid var(--borderColor);
 
   height: fit-content;
   min-height: 300px;
@@ -36,7 +35,7 @@ h6 {
 }
 
 .rightContent {
-  width: 76%;
+  width: 65%;
   margin-left: 2%;
   margin-right: 3%;
 }
