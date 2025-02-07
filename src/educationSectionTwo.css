@@ -185,33 +185,56 @@
 .leftContent.contentSection .experienceInputContainerButtons button {
   margin-left: 10px;
   margin-bottom: 10px;
-  background-color: orange;
+  background-color: gainsboro !important;
+  color: white;
+  transition: background-color 0.2s ease;
+
+  height: 25px;
+  width: 70px;
   border: none !important;
 
   cursor: pointer;
 }
 
-.leftContent.contentSection .submitBtn {
+.leftContent.contentSection .experienceInputContainerButtons button:hover {
   transition: background-color 0.2s ease;
-  background-color: gray;
-  color: gainsboro;
+  background-color: gray !important;
+  color: white;
 }
 
-.leftContent.contentSection .submitBtn:hover {
-  transition: background-color 0.2s ease;
-  background-color: gainsboro;
-  color: gray;
+.leftContent.contentSection:has(.submitBtn:disabled)
+  .inputsAndInputsButtonsContainer
+  div:nth-child(1)
+  input {
+  transition: outline 0.2s ease;
+  outline: 2px solid red !important;
 }
 
-.leftContent.contentSection .submitBtn:disabled {
-  background-color: gray;
-  transition: background-color 0.2s ease;
-  border: 1px solid hwb(0 27% 50%);
+.leftContent.contentSection:has(.submitBtn:disabled)
+  .inputsAndInputsButtonsContainer
+  div:nth-child(1)
+  input:focus {
+  border: none;
 }
+
+.leftContent.contentSection:has(.submitBtn:disabled)
+  .inputsAndInputsButtonsContainer
+  div:nth-child(1)
+  p {
+  display: block !important;
+  position: relative;
+  font-size: 14px;
+  margin-top: -22px;
+  margin-left: 57%;
+  margin-bottom: 0px;
+}
+
 .leftContent.contentSection .submitBtn:disabled:hover {
-  transition: background-color 0.2s ease;
-  background-color: gainsboro;
-  color: gray;
+  background-color: gainsboro !important;
+  color: white;
+}
+
+.leftContent.contentSection .deleteRowButton {
 }
 
 .leftContent.contentSection .titleAndButton h2 {

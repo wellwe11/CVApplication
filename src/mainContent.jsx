@@ -86,6 +86,8 @@ export default function MainContent() {
     },
   ]);
 
+  const [activeSection, setActiveSection] = useState(null);
+
   return (
     <div>
       <div className="headerContainer">
@@ -108,6 +110,8 @@ export default function MainContent() {
             handleAddRow={handleAddExperienceRow}
             handleRemoveRow={handleRemoveExperienceRow}
             handleChange={handleExperienceChange}
+            activeSection={activeSection}
+            setActiveSection={setActiveSection}
           />
           <ExperienceInputs
             titleType={"Education"}
@@ -115,6 +119,8 @@ export default function MainContent() {
             handleAddRow={handleAddEducationRow}
             handleRemoveRow={handleRemoveEducationRow}
             handleChange={handleEducationChange}
+            activeSection={activeSection}
+            setActiveSection={setActiveSection}
           />
         </div>
 

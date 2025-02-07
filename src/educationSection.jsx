@@ -20,9 +20,9 @@ export default function ExperienceInputs({
   handleAddRow,
   handleRemoveRow,
   titleType,
+  activeSection,
+  setActiveSection,
 }) {
-  const { state: titleState, toggleState: handleTitleState } =
-    handleState(false);
   const { state: hideButton, toggleState: handleHideButton } =
     handleState(false);
   const { state: hideAddButton, toggleState: handleHideAddButton } =
@@ -44,21 +44,22 @@ export default function ExperienceInputs({
         <button
           className="expandExperienceInputs"
           onClick={() => {
-            handleTitleState();
+            setActiveSection(activeSection === titleType ? null : titleType);
             handleHideAddButton(false);
           }}
         >
-          {hideAddButton ? "-" : "+"}
+          {activeSection === titleType ? "-" : "+"}
         </button>
       </div>
+
       <div
         className={`experienceInputs ${
-          titleState ? "scaleUpBar" : "minimizeBar"
+          activeSection === titleType ? "scaleUpBar" : "minimizeBar"
         }`}
       >
         {rows.map((row, index) => (
           <div className={`experienceInput`} key={index}>
-            {titleState && (
+            {activeSection === titleType && (
               <>
                 <button
                   onClick={() => {
@@ -86,6 +87,9 @@ export default function ExperienceInputs({
                     {Object.keys(row).map((key) => (
                       <div key={key}>
                         <h5>{key}</h5>
+                        <p style={{ display: "none", color: "red" }}>
+                          Please fill out this input
+                        </p>
                         <input
                           key={row.id}
                           type="text"
