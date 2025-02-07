@@ -12,10 +12,10 @@ const handleState = (stateToUse) => {
     setState([
       ...state,
       {
-        experienceType: "",
-        titleType: "",
-        dateTypeStart: "",
-        dateTypeEnd: "",
+        experience: "",
+        title: "",
+        "start date": "",
+        "end date": "",
         id: crypto.randomUUID(),
       },
     ]);
@@ -44,9 +44,10 @@ export default function MainContent() {
   //
   const [nameRows, setNameRows] = useState([
     {
-      "User name": "",
-      "Phone number": "",
-      "Email Address": "",
+      "User name": "Robin Ryan",
+      Location: "Sweden",
+      "Phone number": "+74 123 392 09",
+      "Email Address": "robinsMadeUpMail@email.com",
     },
   ]);
 
@@ -63,10 +64,10 @@ export default function MainContent() {
     handleStateChange: handleExperienceChange,
   } = handleState([
     {
-      experienceType: "",
-      titleType: "",
-      dateTypeStart: "",
-      dateTypeEnd: "",
+      "company name": "EA Digital Illusions CE AB",
+      title: "Game developer",
+      "start date": "2019/04/20",
+      "end date": "present",
       id: crypto.randomUUID(),
     },
   ]);
@@ -78,10 +79,10 @@ export default function MainContent() {
     handleStateChange: handleEducationChange,
   } = handleState([
     {
-      experienceType: "",
-      titleType: "",
-      dateTypeStart: "",
-      dateTypeEnd: "",
+      "school / university": "Ljud och Bildskolan",
+      "degree / field of study": "Game design",
+      "start date": "2012/09/01",
+      "end date": "2015/07/23",
       id: crypto.randomUUID(),
     },
   ]);
@@ -129,12 +130,14 @@ export default function MainContent() {
             rows={nameRows}
             handleNameChange={handleNamesRowChange}
           />
+          <h2>Work experience</h2>
           <ExperienceInputs
             rows={experienceRows}
             handleAddRow={handleAddExperienceRow}
             handleRemoveRow={handleRemoveExperienceRow}
             handleChange={handleExperienceChange}
           />
+          <h2>Education</h2>
           <ExperienceInputs
             rows={educationRows}
             handleAddRow={handleAddEducationRow}

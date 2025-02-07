@@ -87,14 +87,19 @@ export default function ExperienceInputs({
                     {Object.keys(row).map((key) => (
                       <div key={key}>
                         <h5>{key}</h5>
-                        <p style={{ display: "none", color: "red" }}>
+                        <p
+                          style={{
+                            display: "none",
+                            color: "rgb(225, 144, 144)",
+                          }}
+                        >
                           Please fill out this input
                         </p>
                         <input
                           key={row.id}
                           type="text"
                           value={row[key]}
-                          placeholder={key}
+                          placeholder={`Enter ${key}`}
                           onChange={(e) => handleChange(e, index, key)}
                         />
                       </div>
@@ -142,7 +147,9 @@ export default function ExperienceInputs({
             activeSection === titleType ? "scaleUpBarBtn" : "minimizeBar"
           }`}
         >
-          +
+          <h4>
+            {titleType === "Work experience" ? "+Experience" : "+Education"}
+          </h4>
         </button>
       </div>
     </div>

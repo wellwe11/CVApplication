@@ -30,14 +30,13 @@ h6 {
 }
 
 .leftContent {
-  width: 35%;
+  width: 40%;
   margin-left: 5%;
 }
 
 .rightContent {
   width: 65%;
-  margin-left: 2%;
-  margin-right: 3%;
+  margin-right: 6%;
 }
 
 .CVContainer {

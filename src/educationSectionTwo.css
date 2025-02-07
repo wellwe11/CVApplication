@@ -96,7 +96,23 @@
 
 .leftContent.contentSection .addRowButton:hover {
   cursor: pointer;
-  font-size: 24px;
+}
+
+.leftContent.contentSection .addRowButton h4 {
+  padding: 9px;
+  border-radius: 10px;
+  border: 2px solid gainsboro;
+  transition: border 0.2s ease-out;
+
+  font-size: 14px;
+}
+
+.leftContent.contentSection:has(.addRowButton:hover) .addRowButton > h4 {
+  border: 2px solid gray;
+}
+
+.leftContent.contentSection .addRowButton h4:hover {
+  outline: 0.5px solid gray;
 }
 
 .leftContent.contentSection .experienceInputs .experienceInput h4 {
@@ -105,7 +121,7 @@
 
 .leftContent.contentSection .experienceInputs .experienceInput > button {
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 }
 
 .leftContent.contentSection .experienceInputs .inputsContainer {
@@ -180,25 +196,27 @@
   margin-top: 15px;
   align-items: flex-end;
   justify-content: flex-end;
+  margin-left: -1.7%;
 }
 
 .leftContent.contentSection .experienceInputContainerButtons button {
   margin-left: 10px;
   margin-bottom: 10px;
-  background-color: gainsboro !important;
+  background-color: gray !important;
   color: white;
   transition: background-color 0.2s ease;
 
   height: 25px;
   width: 70px;
   border: none !important;
+  border-radius: 5px;
 
   cursor: pointer;
 }
 
 .leftContent.contentSection .experienceInputContainerButtons button:hover {
   transition: background-color 0.2s ease;
-  background-color: gray !important;
+  background-color: gainsboro !important;
   color: white;
 }
 
@@ -207,7 +225,7 @@
   div:nth-child(1)
   input {
   transition: outline 0.2s ease;
-  outline: 2px solid red !important;
+  outline: 2px solid rgb(225, 144, 144) !important;
 }
 
 .leftContent.contentSection:has(.submitBtn:disabled)
@@ -229,6 +247,10 @@
   margin-bottom: 0px;
 }
 
+.leftContent.contentSection .submitBtn:disabled {
+  background-color: gainsboro !important;
+}
+
 .leftContent.contentSection .submitBtn:disabled:hover {
   background-color: gainsboro !important;
   color: white;
@@ -239,6 +261,7 @@
 
 .leftContent.contentSection .titleAndButton h2 {
   margin: 15px;
+  margin-left: 6%;
 }
 
 .leftContent.contentSection .titleAndButton button {
