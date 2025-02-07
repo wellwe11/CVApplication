@@ -25,8 +25,6 @@ export default function ExperienceInputs({
 }) {
   const { state: hideButton, toggleState: handleHideButton } =
     handleState(false);
-  const { state: hideAddButton, toggleState: handleHideAddButton } =
-    handleState(false);
 
   const [rowState, setRowState] = useState({});
 
@@ -39,13 +37,16 @@ export default function ExperienceInputs({
 
   return (
     <div className="experienceSection">
-      <div className="titleAndButton">
+      <div
+        className={`titleAndButton ${
+          activeSection !== titleType ? "experienceTitleMini" : ""
+        }`}
+      >
         <h2>{titleType}</h2>
         <button
           className="expandExperienceInputs"
           onClick={() => {
             setActiveSection(activeSection === titleType ? null : titleType);
-            handleHideAddButton(false);
           }}
         >
           {activeSection === titleType ? "-" : "+"}
@@ -65,7 +66,6 @@ export default function ExperienceInputs({
                   onClick={() => {
                     displayInputs(index);
                     handleHideButton(true);
-                    handleHideAddButton(true);
                   }}
                   className={`experienceButton ${
                     !hideButton ? "displayBar" : "hideBar"
@@ -110,7 +110,6 @@ export default function ExperienceInputs({
                         handleRemoveRow(index);
                         setRowState(index);
                         handleHideButton(false);
-                        handleHideAddButton(true);
                       }}
                       className="deleteRowButton"
                     >
@@ -122,7 +121,6 @@ export default function ExperienceInputs({
                       onClick={() => {
                         displayInputs(index);
                         handleHideButton(true);
-                        handleHideAddButton(true);
                       }}
                       disabled={Object.values(row)[0].length > 0 ? false : true}
                     >
@@ -139,10 +137,9 @@ export default function ExperienceInputs({
             handleAddRow();
             displayInputs(rows.length);
             handleHideButton(false);
-            handleHideAddButton(true);
           }}
           className={`addRowButton ${
-            hideAddButton ? "scaleUpBarBtn" : "minimizeBar"
+            activeSection === titleType ? "scaleUpBarBtn" : "minimizeBar"
           }`}
         >
           +

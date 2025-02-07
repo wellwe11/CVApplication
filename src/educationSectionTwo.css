@@ -275,12 +275,14 @@
 
 .scaleUpBar {
   height: auto;
-  max-height: 250px;
+  max-height: 238px;
   opacity: 1;
   visibility: visible;
   overflow: hidden;
   transition: max-height 0.6s ease-out, opacity 0.6s ease-out,
     visibility 0.6s ease-out;
+
+  border-radius: 10px;
 }
 
 .scaleUpBarBtn {
@@ -298,4 +300,8 @@
 
 .hideBar {
   display: none;
+}
+
+.experienceTitleMini {
+  border-radius: 10px;
 }
