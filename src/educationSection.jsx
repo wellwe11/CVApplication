@@ -35,6 +35,20 @@ export default function ExperienceInputs({
     }));
   };
 
+  const [textAreaValue, setTextAreaValue] = useState("");
+
+  const getHeight = (e) => {
+    return e.length > 235
+      ? "125px"
+      : e.length > 175
+      ? "100px"
+      : e.length > 100
+      ? "75px"
+      : e.length > 40
+      ? "50px"
+      : "30px";
+  };
+
   return (
     <div className="experienceSection">
       <div
@@ -104,9 +118,9 @@ export default function ExperienceInputs({
                           style={{
                             width:
                               row[key].length > 25
-                                ? "230px"
+                                ? "300px"
                                 : row[key].length > 15
-                                ? "145px"
+                                ? "185px"
                                 : row[key].length > 10
                                 ? "100px"
                                 : "80px",
@@ -114,6 +128,22 @@ export default function ExperienceInputs({
                         />
                       </div>
                     ))}
+                  </div>
+                  <div
+                    className={`textAreaWrapper ${
+                      rowState[index] ? "scaleUpBar" : "minimizeBar"
+                    }`}
+                  >
+                    <h5>Description</h5>
+                    <textarea
+                      onChange={(e) => setTextAreaValue(e.target.value)}
+                      style={{
+                        height: getHeight(textAreaValue),
+                        transition: "0.3s ease",
+                        placeholder:
+                          "Tell us something about your experience...",
+                      }}
+                    ></textarea>
                   </div>
                   <div
                     className={`experienceInputContainerButtons ${
@@ -153,9 +183,7 @@ export default function ExperienceInputs({
             displayInputs(rows.length);
             handleHideButton(false);
           }}
-          className={`addRowButton ${
-            activeSection === titleType ? "scaleUpBarBtn" : "minimizeBar"
-          }`}
+          className={`addRowButton ${!hideButton ? "displayBar" : "hideBar"}`}
         >
           <h4>
             {titleType === "Work experience" ? "+Experience" : "+Education"}

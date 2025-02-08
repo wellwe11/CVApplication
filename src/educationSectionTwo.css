@@ -17,6 +17,16 @@
 
   margin-bottom: 20px;
 }
+.leftContent.contentSection
+  .experienceSection:nth-of-type(4)
+  .textAreaWrapper
+  h5,
+.leftContent.contentSection
+  .experienceSection:nth-of-type(4)
+  .textAreaWrapper
+  textarea {
+  display: none;
+}
 
 .leftContent.contentSection .titleAndButton {
   background-color: white;
@@ -81,7 +91,6 @@
   height: 60px;
   width: 100%;
 
-  display: flex;
   justify-content: center;
   align-items: center;
   font-size: 16px;
@@ -191,6 +200,31 @@
   align-self: center;
 }
 
+.leftContent.contentSection .textAreaWrapper {
+  margin-top: 20px;
+  width: 90%;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+}
+.leftContent.contentSection .textAreaWrapper h5 {
+  width: 96%;
+  align-self: center;
+}
+
+.leftContent.contentSection .textAreaWrapper textarea {
+  width: 95%;
+  max-height: 200px;
+  min-height: 30px;
+  resize: vertical;
+  align-self: center;
+
+  background-color: gainsboro;
+  color: black;
+  border: none;
+  outline: none;
+}
+
 .leftContent.contentSection .experienceInputContainerButtons {
   width: 95%;
   margin-top: 15px;
@@ -298,7 +332,7 @@
 
 .scaleUpBar {
   height: auto;
-  max-height: 238px;
+  max-height: 500px;
   opacity: 1;
   visibility: visible;
   overflow: hidden;

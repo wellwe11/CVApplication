@@ -21,7 +21,7 @@ export default function TitleAndInputs({ rows, handleNameChange }) {
                       ? "350px"
                       : row[key].length > 15
                       ? "250px"
-                      : row[key].length > 10
+                      : row[key].length > 9
                       ? "200px"
                       : "100px",
                 }}
