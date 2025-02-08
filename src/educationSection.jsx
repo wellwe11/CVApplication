@@ -20,8 +20,6 @@ export default function ExperienceInputs({
   handleAddRow,
   handleRemoveRow,
   titleType,
-  textAreaText,
-  setTextAreaText,
   activeSection,
   setActiveSection,
 }) {
@@ -35,20 +33,6 @@ export default function ExperienceInputs({
       ...prevState,
       [index]: !prevState[index],
     }));
-  };
-
-  const [textAreaValue, setTextAreaValue] = useState("");
-
-  const getHeight = (e) => {
-    return e.length > 235
-      ? "125px"
-      : e.length > 175
-      ? "100px"
-      : e.length > 100
-      ? "75px"
-      : e.length > 40
-      ? "50px"
-      : "30px";
   };
 
   return (
@@ -120,12 +104,12 @@ export default function ExperienceInputs({
                           <textarea
                             key={row.id}
                             onChange={(e) => {
-                              setTextAreaValue(e.target.value);
                               handleChange(e, index, key);
                             }}
                             value={row[key]}
                             style={{
-                              height: getHeight(textAreaValue),
+                              height: `${(row[key].length * 1) / 2}px`,
+                              maxHeight: "150px",
                               transition: "0.3s ease",
                               border: "none",
                               outline: "none",
@@ -139,14 +123,15 @@ export default function ExperienceInputs({
                             placeholder={`Enter ${key}`}
                             onChange={(e) => handleChange(e, index, key)}
                             style={{
-                              width:
-                                row[key].length > 25
-                                  ? "300px"
-                                  : row[key].length > 15
-                                  ? "230px"
-                                  : row[key].length > 10
+                              width: `${row[key].length * 10}px`,
+                              maxWidth:
+                                key === "end date"
+                                  ? "70px"
+                                  : key === "start date"
+                                  ? "70px"
+                                  : key === "location"
                                   ? "150px"
-                                  : "120px",
+                                  : "300px",
                             }}
                           />
                         )}

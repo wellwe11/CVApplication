@@ -190,6 +190,7 @@
   transition: outline 0.2s ease;
 
   width: 97% !important;
+  max-width: 1000px !important;
 }
 
 .leftContent.contentSection .inputsAndInputsButtonsContainer input:focus,

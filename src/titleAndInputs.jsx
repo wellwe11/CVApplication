@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./titleAndInputs.css";
 
 export default function TitleAndInputs({ rows, handleNameChange }) {
@@ -14,16 +15,17 @@ export default function TitleAndInputs({ rows, handleNameChange }) {
                 type="text"
                 value={row[key]}
                 placeholder={`Your ${key}...`}
-                onChange={(e) => handleNameChange(e, index, key)}
+                onChange={(e) => {
+                  handleNameChange(e, index, key);
+                }}
                 style={{
+                  minWidth: "65px",
+                  maxWidth: key === "User name" ? "550px" : "300px",
                   width:
-                    row[key].length > 20
-                      ? "350px"
-                      : row[key].length > 15
-                      ? "250px"
-                      : row[key].length > 9
-                      ? "200px"
-                      : "100px",
+                    key === "User name"
+                      ? `${row[key].length * 20}px`
+                      : `${row[key].length * 10}px`,
+                  transition: "width 0.2s ease",
                 }}
               />
             </div>

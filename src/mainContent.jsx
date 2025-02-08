@@ -68,7 +68,7 @@ export default function MainContent() {
     {
       "company name": "EA Digital Illusions CE AB",
       title: "Game developer",
-      "start date": "2019/04/20",
+      "start date": "04/20/2019",
       "end date": "present",
       location: "Sweden",
       id: crypto.randomUUID(),
@@ -86,8 +86,8 @@ export default function MainContent() {
     {
       "school / university": "Ljud och Bildskolan",
       "degree / field of study": "Game design",
-      "start date": "2012/09/01",
-      "end date": "2015/07/23",
+      "start date": "09/01/2012",
+      "end date": "07/23/2015",
       location: "Sweden",
       id: crypto.randomUUID(),
     },
@@ -100,11 +100,7 @@ export default function MainContent() {
 
   return (
     <div>
-      <div className="headerContainer">
-        <header>
-          <h1>HeaderTitle</h1>
-        </header>
-      </div>
+      <div className="headerContainer"></div>
       <div className="contentContainer">
         <div className="leftContent contentSection">
           <div>
