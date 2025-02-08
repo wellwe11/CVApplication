@@ -361,7 +361,8 @@
   color: black;
 }
 
-.rightContent .textAreaWrapper h5 {
+.rightContent .textAreaWrapper h5,
+.rightContent .textAreaWrapper {
   display: none;
 }
 
@@ -371,7 +372,13 @@
 }
 
 .rightTitle {
-  margin-left: 20px;
+  background-color: antiquewhite;
+  width: 97%;
+  justify-self: center;
+}
+
+.rightTitle div {
+  margin-left: 13px;
 }
 
 .rightTitle:nth-of-type(2) {

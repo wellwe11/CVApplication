@@ -141,14 +141,21 @@ export default function MainContent() {
             rows={nameRows}
             handleNameChange={handleNamesRowChange}
           />
-          <h2 className="rightTitle">Education</h2>
+
+          <h2 className="rightTitle">
+            <div>Education</div>
+          </h2>
+
           <ExperienceInputs
             rows={educationRows}
             handleAddRow={handleAddEducationRow}
             handleRemoveRow={handleRemoveEducationRow}
             handleChange={handleEducationChange}
           />
-          <h2 className="rightTitle">Work experience</h2>
+
+          <h2 className="rightTitle">
+            <div>Work experience</div>
+          </h2>
           <ExperienceInputs
             rows={experienceRows}
             handleAddRow={handleAddExperienceRow}
