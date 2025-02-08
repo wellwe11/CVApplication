@@ -101,6 +101,16 @@ export default function ExperienceInputs({
                           value={row[key]}
                           placeholder={`Enter ${key}`}
                           onChange={(e) => handleChange(e, index, key)}
+                          style={{
+                            width:
+                              row[key].length > 25
+                                ? "230px"
+                                : row[key].length > 15
+                                ? "145px"
+                                : row[key].length > 10
+                                ? "100px"
+                                : "80px",
+                          }}
                         />
                       </div>
                     ))}

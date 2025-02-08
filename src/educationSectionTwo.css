@@ -169,7 +169,7 @@
 }
 
 .leftContent.contentSection .inputsAndInputsButtonsContainer input {
-  height: 15px;
+  height: 15px !important;
   padding: 7px;
   background-color: rgb(120, 120, 120, 0.1);
   color: black;
@@ -179,7 +179,7 @@
   outline: 1.5px solid transparent;
   transition: outline 0.2s ease;
 
-  width: 97%;
+  width: 97% !important;
 }
 
 .leftContent.contentSection .inputsAndInputsButtonsContainer input:focus {

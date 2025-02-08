@@ -201,3 +201,108 @@
 .rightContent .headerContainer h4 {
   display: none;
 }
+
+.rightContent .experienceSection {
+}
+
+.rightContent .titleAndButton {
+  display: none !important;
+}
+
+.rightContent .addRowButton {
+  display: none !important;
+}
+
+.rightContent .experienceInput {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  height: 75px;
+}
+
+.rightContent .inputsContainer {
+  height: 100%;
+}
+
+.rightContent .experienceInputs {
+}
+
+.rightContent .experienceButton {
+  display: none;
+}
+
+.rightContent .inputsAndInputsButtonsContainer {
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: 100% !important;
+  border-radius: 0px !important;
+
+  display: flex !important;
+
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.rightContent .inputsAndInputsButtonsContainer input {
+  height: 31px;
+  color: black;
+  background-color: transparent;
+  pointer-events: none;
+
+  font-size: 14px;
+
+  border: none;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.rightContent .inputsAndInputsButtonsContainer h5 {
+  display: none;
+}
+
+.rightContent .inputsAndInputsButtonsContainer div:nth-child(1),
+.rightContent .inputsAndInputsButtonsContainer div:nth-child(3) {
+  margin-left: 20px;
+}
+
+.rightContent .inputsAndInputsButtonsContainer div:nth-child(4) {
+  position: absolute;
+  margin-left: 100px;
+}
+
+.rightContent .inputsAndInputsButtonsContainer div:nth-child(3) {
+  position: absolute;
+}
+
+.rightContent .inputsAndInputsButtonsContainer div:nth-child(4) {
+  position: absolute;
+}
+
+.rightContent .inputsAndInputsButtonsContainer div:nth-child(1) {
+  margin-left: 200px;
+  margin-top: 38px;
+  position: absolute;
+}
+
+.rightContent .inputsAndInputsButtonsContainer div:nth-child(2) {
+  margin-left: 200px;
+  position: absolute;
+}
+
+.rightContent .inputsAndInputsButtonsContainer div:nth-child(5) {
+  display: none;
+}
+
+.rightContent .inputsAndInputsButtonsContainer div:nth-child(3) > input {
+}
+
+.rightContent .scaleUpBar {
+  border-radius: 1px;
+}
+
+.rightTitle {
+  margin-left: 20px;
+}

@@ -130,19 +130,19 @@ export default function MainContent() {
             rows={nameRows}
             handleNameChange={handleNamesRowChange}
           />
-          <h2>Work experience</h2>
-          <ExperienceInputs
-            rows={experienceRows}
-            handleAddRow={handleAddExperienceRow}
-            handleRemoveRow={handleRemoveExperienceRow}
-            handleChange={handleExperienceChange}
-          />
-          <h2>Education</h2>
+          <h2 className="rightTitle">Education</h2>
           <ExperienceInputs
             rows={educationRows}
             handleAddRow={handleAddEducationRow}
             handleRemoveRow={handleRemoveEducationRow}
             handleChange={handleEducationChange}
+          />
+          <h2 className="rightTitle">Work experience</h2>
+          <ExperienceInputs
+            rows={experienceRows}
+            handleAddRow={handleAddExperienceRow}
+            handleRemoveRow={handleRemoveExperienceRow}
+            handleChange={handleExperienceChange}
           />
         </div>
       </div>
