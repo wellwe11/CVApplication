@@ -46,7 +46,7 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  background-color: aliceblue;
+  background-color: rgb(247, 247, 247);
 }
 
 .leftContent.contentSection .experienceInput button h4 {
@@ -75,12 +75,12 @@
   color: black;
   border: none;
   cursor: pointer;
-  border-top: 3px solid aliceblue;
-  border-bottom: 3px solid aliceblue;
+  border-top: 3px solid rgb(247, 247, 247);
+  border-bottom: 3px solid rgb(247, 247, 247);
 }
 
 .leftContent.contentSection .experienceInput:first-of-type button {
-  border-top: 6px solid aliceblue;
+  border-top: 6px solid rgb(247, 247, 247);
 }
 
 .leftContent.contentSection .experienceInputs .experienceInput:hover {

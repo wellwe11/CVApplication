@@ -100,6 +100,9 @@ export default function MainContent() {
 
   return (
     <div>
+      <div>
+        {/* fix div container to have a button to configure color of CV */}
+      </div>
       <div className="headerContainer"></div>
       <div className="contentContainer">
         <div className="leftContent contentSection">
