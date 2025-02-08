@@ -1,5 +1,6 @@
 /* global margin  */
-.leftContent.contentSection input {
+.leftContent.contentSection input,
+.leftContent.contentSection textarea {
   margin-top: 5px;
 }
 
@@ -173,7 +174,7 @@
 }
 
 /*hide id input*/
-.leftContent.contentSection .inputsAndInputsButtonsContainer div:nth-child(5) {
+.leftContent.contentSection .inputsAndInputsButtonsContainer div:nth-child(6) {
   display: none;
 }
 
@@ -191,7 +192,8 @@
   width: 97% !important;
 }
 
-.leftContent.contentSection .inputsAndInputsButtonsContainer input:focus {
+.leftContent.contentSection .inputsAndInputsButtonsContainer input:focus,
+.leftContent.contentSection .inputsAndInputsButtonsContainer textarea:focus {
   transition: outline 1s ease-out;
   outline: 1.5px solid gray;
 }
@@ -207,6 +209,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .leftContent.contentSection .textAreaWrapper h5 {
   width: 96%;
   align-self: center;
@@ -216,13 +219,14 @@
   width: 95%;
   max-height: 200px;
   min-height: 30px;
-  resize: vertical;
+  resize: none;
   align-self: center;
 
   background-color: gainsboro;
   color: black;
   border: none;
   outline: none;
+  resize: none;
 }
 
 .leftContent.contentSection .experienceInputContainerButtons {

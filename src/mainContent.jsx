@@ -16,7 +16,9 @@ const handleState = (stateToUse) => {
         title: "",
         "start date": "",
         "end date": "",
+        location: "",
         id: crypto.randomUUID(),
+        description: "",
       },
     ]);
   };
@@ -68,7 +70,10 @@ export default function MainContent() {
       title: "Game developer",
       "start date": "2019/04/20",
       "end date": "present",
+      location: "Sweden",
       id: crypto.randomUUID(),
+      description:
+        "My first job as a developer was with games, which was stationed in Stockholm, Sweden. I am still here, and enjoy the job as it is.",
     },
   ]);
 
@@ -83,9 +88,13 @@ export default function MainContent() {
       "degree / field of study": "Game design",
       "start date": "2012/09/01",
       "end date": "2015/07/23",
+      location: "Sweden",
       id: crypto.randomUUID(),
     },
   ]);
+
+  const [textAreaTextWorkExperience, setTextAreaTextWorkExperience] =
+    useState("");
 
   const [activeSection, setActiveSection] = useState(null);
 
@@ -113,6 +122,8 @@ export default function MainContent() {
             handleChange={handleExperienceChange}
             activeSection={activeSection}
             setActiveSection={setActiveSection}
+            textAreaText={textAreaTextWorkExperience}
+            setTextAreaText={setTextAreaTextWorkExperience}
           />
           <ExperienceInputs
             titleType={"Education"}
@@ -143,6 +154,8 @@ export default function MainContent() {
             handleAddRow={handleAddExperienceRow}
             handleRemoveRow={handleRemoveExperienceRow}
             handleChange={handleExperienceChange}
+            textAreaText={textAreaTextWorkExperience}
+            setTextAreaText={setTextAreaTextWorkExperience}
           />
         </div>
       </div>

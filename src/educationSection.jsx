@@ -20,6 +20,8 @@ export default function ExperienceInputs({
   handleAddRow,
   handleRemoveRow,
   titleType,
+  textAreaText,
+  setTextAreaText,
   activeSection,
   setActiveSection,
 }) {
@@ -99,7 +101,12 @@ export default function ExperienceInputs({
                     }`}
                   >
                     {Object.keys(row).map((key) => (
-                      <div key={key}>
+                      <div
+                        key={key}
+                        className={
+                          key === "description" ? `textAreaWrapper` : ""
+                        }
+                      >
                         <h5>{key}</h5>
                         <p
                           style={{
@@ -109,41 +116,42 @@ export default function ExperienceInputs({
                         >
                           Please fill out this input
                         </p>
-                        <input
-                          key={row.id}
-                          type="text"
-                          value={row[key]}
-                          placeholder={`Enter ${key}`}
-                          onChange={(e) => handleChange(e, index, key)}
-                          style={{
-                            width:
-                              row[key].length > 25
-                                ? "300px"
-                                : row[key].length > 15
-                                ? "185px"
-                                : row[key].length > 10
-                                ? "100px"
-                                : "80px",
-                          }}
-                        />
+                        {key === "description" ? (
+                          <textarea
+                            key={row.id}
+                            onChange={(e) => {
+                              setTextAreaValue(e.target.value);
+                              handleChange(e, index, key);
+                            }}
+                            value={row[key]}
+                            style={{
+                              height: getHeight(textAreaValue),
+                              transition: "0.3s ease",
+                              border: "none",
+                              outline: "none",
+                            }}
+                          ></textarea>
+                        ) : (
+                          <input
+                            key={row.id}
+                            type="text"
+                            value={row[key]}
+                            placeholder={`Enter ${key}`}
+                            onChange={(e) => handleChange(e, index, key)}
+                            style={{
+                              width:
+                                row[key].length > 25
+                                  ? "300px"
+                                  : row[key].length > 15
+                                  ? "230px"
+                                  : row[key].length > 10
+                                  ? "150px"
+                                  : "120px",
+                            }}
+                          />
+                        )}
                       </div>
                     ))}
-                  </div>
-                  <div
-                    className={`textAreaWrapper ${
-                      rowState[index] ? "scaleUpBar" : "minimizeBar"
-                    }`}
-                  >
-                    <h5>Description</h5>
-                    <textarea
-                      onChange={(e) => setTextAreaValue(e.target.value)}
-                      style={{
-                        height: getHeight(textAreaValue),
-                        transition: "0.3s ease",
-                        placeholder:
-                          "Tell us something about your experience...",
-                      }}
-                    ></textarea>
                   </div>
                   <div
                     className={`experienceInputContainerButtons ${
