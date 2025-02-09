@@ -1,7 +1,7 @@
 "use strict";
 import ChromePicker from "react-color";
 import { useState } from "react";
-import "./changeColorBtn.css";
+import "../styles/changeColorBtn.css";
 
 export default function TopLeftButton({
   backgroundColor,

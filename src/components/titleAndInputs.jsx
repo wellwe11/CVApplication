@@ -1,4 +1,4 @@
-import "./titleAndInputs.css";
+import "../styles/titleAndInputs.css";
 
 export default function TitleAndInputs({
   rows,

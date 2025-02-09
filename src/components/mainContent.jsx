@@ -2,8 +2,8 @@ import { useState } from "react";
 import TopLeftButton from "./changeColorBtn";
 import TitleAndInputs from "./titleAndInputs";
 import ExperienceInputs from "./educationSection";
-import "./mainContent.css";
-import "./titleAndInputs.css";
+import "../styles/mainContent.css";
+import "../styles/titleAndInputs.css";
 
 // abstract usestate to manage input-objects. They are mainly the same
 const handleState = (stateToUse) => {

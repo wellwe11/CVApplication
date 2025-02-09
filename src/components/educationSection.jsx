@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./educationSectionTwo.css";
+import "../styles/educationSectionTwo.css";
 
 const handleState = (stateToUse) => {
   const [state, setState] = useState(stateToUse);
