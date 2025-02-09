@@ -26,12 +26,12 @@ export default function TitleAndInputs({
                   handleNameChange(e, index, key);
                 }}
                 style={{
-                  minWidth: "65px",
+                  minWidth: "60px",
                   maxWidth: key === "User name" ? "550px" : "300px",
                   width:
                     key === "User name"
                       ? `${row[key].length * 20}px`
-                      : `${row[key].length * 10}px`,
+                      : `${row[key].length * 10 + 10}px`,
                   transition: "width 0.2s ease",
                   color: `${textC}`,
                 }}

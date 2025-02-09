@@ -18,6 +18,15 @@
 
   margin-bottom: 20px;
 }
+
+.leftContent.contentSection .experienceSection:nth-of-type(3) {
+  order: 4 !important;
+}
+
+.leftContent.contentSection .experienceSection:nth-of-type(4) {
+  order: 3 !important;
+}
+
 .leftContent.contentSection
   .experienceSection:nth-of-type(4)
   .textAreaWrapper
