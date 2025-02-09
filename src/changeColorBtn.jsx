@@ -33,6 +33,10 @@ export default function TopLeftButton({
     <div className="settingsButtonContainer">
       <button className="settingsButton" onClick={handleClickFirst}>
         <h3 className="settingsButtonText">Change CV-color</h3>
+        <div
+          className="colorExample"
+          style={{ backgroundColor: backgroundColor }}
+        />
       </button>
       {displayFirstColorPicker ? (
         <div
@@ -60,6 +64,7 @@ export default function TopLeftButton({
 
       <button className="settingsButton" onClick={handleSecondClick}>
         <h3>Change text color</h3>
+        <div className="colorExample" style={{ backgroundColor: textColor }} />
       </button>
       {displaySecondColorPicker ? (
         <div

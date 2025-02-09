@@ -31,11 +31,14 @@ h6 {
 
 .leftContent {
   width: 40%;
+
+  max-width: 800px;
   margin-left: 5%;
 }
 
 .rightContent {
   width: 65%;
+  max-width: 1000px;
   margin-right: 6%;
 }
 

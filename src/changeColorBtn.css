@@ -42,3 +42,10 @@
   color: gray !important;
   background-color: white !important;
 }
+
+.colorExample {
+  width: 12px;
+  height: 40px;
+
+  border-radius: 5px;
+}
