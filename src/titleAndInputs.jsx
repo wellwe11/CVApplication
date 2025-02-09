@@ -1,9 +1,16 @@
-import { useState } from "react";
 import "./titleAndInputs.css";
 
-export default function TitleAndInputs({ rows, handleNameChange }) {
+export default function TitleAndInputs({
+  rows,
+  handleNameChange,
+  backgroundC,
+  textC,
+}) {
   return (
-    <div className="headerInputsContainer">
+    <div
+      className="headerInputsContainer"
+      style={{ backgroundColor: `${backgroundC}` }}
+    >
       <div className="headerContainer">
         {rows.map((row, index) =>
           Object.keys(row).map((key) => (
@@ -26,6 +33,7 @@ export default function TitleAndInputs({ rows, handleNameChange }) {
                       ? `${row[key].length * 20}px`
                       : `${row[key].length * 10}px`,
                   transition: "width 0.2s ease",
+                  color: `${textC}`,
                 }}
               />
             </div>

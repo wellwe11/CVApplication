@@ -1,4 +1,5 @@
 import { useState } from "react";
+import TopLeftButton from "./changeColorBtn";
 import TitleAndInputs from "./titleAndInputs";
 import ExperienceInputs from "./educationSection";
 import "./mainContent.css";
@@ -98,12 +99,30 @@ export default function MainContent() {
 
   const [activeSection, setActiveSection] = useState(null);
 
+  const [backgroundColor, setBackgroundColor] = useState(
+    "rgba(173, 216, 230, 0.3)"
+  );
+  const [textColor, setTextColor] = useState("rgba(1, 1, 1, 1)");
+
+  const handleChangeBackgroundColor = (newColor) => {
+    const rgbaColor = `rgba(${newColor.rgb.r}, ${newColor.rgb.g}, ${newColor.rgb.b}, ${newColor.rgb.a})`;
+    console.log(rgbaColor);
+    setBackgroundColor(rgbaColor);
+  };
+
+  const handleChangeTextColor = (newColor) => {
+    const rgbaColor = `rgba(${newColor.rgb.r}, ${newColor.rgb.g}, ${newColor.rgb.b}, ${newColor.rgb.a})`;
+    setTextColor(rgbaColor);
+  };
+
   return (
     <div>
-      <div>
-        {/* fix div container to have a button to configure color of CV */}
-      </div>
-      <div className="headerContainer"></div>
+      <TopLeftButton
+        backgroundColor={backgroundColor}
+        handleChangeBackgroundColor={handleChangeBackgroundColor}
+        textColor={textColor}
+        handleChangeTextColor={handleChangeTextColor}
+      />
       <div className="contentContainer">
         <div className="leftContent contentSection">
           <div>
@@ -139,9 +158,14 @@ export default function MainContent() {
           <TitleAndInputs
             rows={nameRows}
             handleNameChange={handleNamesRowChange}
+            backgroundC={backgroundColor}
+            textC={textColor}
           />
 
-          <h2 className="rightTitle">
+          <h2
+            className="rightTitle"
+            style={{ backgroundColor: backgroundColor, color: textColor }}
+          >
             <div>Education</div>
           </h2>
 
@@ -152,7 +176,10 @@ export default function MainContent() {
             handleChange={handleEducationChange}
           />
 
-          <h2 className="rightTitle">
+          <h2
+            className="rightTitle"
+            style={{ backgroundColor: backgroundColor, color: textColor }}
+          >
             <div>Work experience</div>
           </h2>
           <ExperienceInputs

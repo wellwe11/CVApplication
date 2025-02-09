@@ -1,0 +1,44 @@
+.settingsButtonContainer {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+
+  width: 110px;
+  margin-top: 12px;
+}
+
+.settingsButton {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  word-break: break-word;
+
+  height: 70px;
+  max-width: 100px;
+
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  border: none;
+
+  border-radius: 7px;
+
+  margin-left: -70px;
+  transition: margin 0.2s ease;
+}
+
+.settingsButton:hover {
+  cursor: pointer;
+  margin-left: -15px;
+
+  transition: margin 0.2s ease-out;
+}
+
+.settingsButtonText {
+}
+
+.flexbox-fix input {
+  color: gray !important;
+  background-color: white !important;
+}

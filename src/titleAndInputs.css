@@ -123,8 +123,6 @@
   align-items: center;
 
   height: 160px;
-
-  background-color: antiquewhite;
 }
 
 .rightContent .headerContainer {
@@ -369,7 +367,6 @@
 }
 
 .rightTitle {
-  background-color: antiquewhite;
   width: 97%;
   justify-self: center;
 }
